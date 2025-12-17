@@ -258,23 +258,26 @@
                                 <img src="profile1.jpg" alt="Partner 1"
                                     class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
                             </div>
-                            <h3 class="text-2xl font-serif font-bold text-slate-900 dark:text-white mb-2">Partner One
+                            <h3 class="text-2xl font-serif font-bold text-slate-900 dark:text-white mb-2">Kenneth Siew
                             </h3>
                             <p
                                 class="text-brand-primary dark:text-brand-secondary font-medium mb-4 text-sm tracking-wide uppercase">
-                                Managing Director</p>
+                                Senior Partner</p>
                             <p class="text-slate-600 dark:text-slate-400 mb-6 leading-relaxed">
                                 Expert in financial modeling and strategic planning with over 15 years of experience in
                                 the industry.
                             </p>
                             <div class="flex space-x-4 mt-auto">
-                                <a href="#"
+                                <a href="https://www.linkedin.com/in/kenneth-s-4924bb1b7/"
                                     class="w-10 h-10 rounded-full bg-white dark:bg-slate-800 flex items-center justify-center text-slate-500 dark:text-slate-400 hover:text-brand-primary hover:bg-blue-50 dark:hover:text-white dark:hover:bg-slate-700 transition-all duration-300">
                                     <i class="fa-brands fa-linkedin-in"></i>
                                 </a>
-                                <a href="#"
-                                    class="w-10 h-10 rounded-full bg-white dark:bg-slate-800 flex items-center justify-center text-slate-500 dark:text-slate-400 hover:text-brand-primary hover:bg-blue-50 dark:hover:text-white dark:hover:bg-slate-700 transition-all duration-300">
-                                    <i class="fa-regular fa-envelope"></i>
+                                <a href="#" data-email="kenneth@exstrat.co"
+                                    class="email-copy-link w-10 h-10 rounded-full bg-white dark:bg-slate-800 flex items-center justify-center text-slate-500 dark:text-slate-400 hover:text-brand-primary hover:bg-blue-50 dark:hover:text-white dark:hover:bg-slate-700 transition-all duration-300 relative group/tooltip">
+                                    <i class="fa-regular fa-envelope transition-all duration-300"></i>
+                                    <span
+                                        class="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-slate-900 text-white text-xs py-1 px-2 rounded opacity-0 group-hover/tooltip:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">Copy
+                                        Email</span>
                                 </a>
                             </div>
                         </div>
@@ -287,23 +290,26 @@
                                 <img src="profile2.jpg" alt="Partner 2"
                                     class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
                             </div>
-                            <h3 class="text-2xl font-serif font-bold text-slate-900 dark:text-white mb-2">Partner Two
+                            <h3 class="text-2xl font-serif font-bold text-slate-900 dark:text-white mb-2">Edison Wong
                             </h3>
                             <p
                                 class="text-brand-primary dark:text-brand-secondary font-medium mb-4 text-sm tracking-wide uppercase">
-                                Strategic Advisor</p>
+                                Senior Partner</p>
                             <p class="text-slate-600 dark:text-slate-400 mb-6 leading-relaxed">
                                 Specializing in investment relations and operational excellence, helping businesses
                                 scale effectively.
                             </p>
                             <div class="flex space-x-4 mt-auto">
-                                <a href="#"
+                                <a href="https://www.linkedin.com/in/edisonwong6986/"
                                     class="w-10 h-10 rounded-full bg-white dark:bg-slate-800 flex items-center justify-center text-slate-500 dark:text-slate-400 hover:text-brand-primary hover:bg-blue-50 dark:hover:text-white dark:hover:bg-slate-700 transition-all duration-300">
                                     <i class="fa-brands fa-linkedin-in"></i>
                                 </a>
-                                <a href="#"
-                                    class="w-10 h-10 rounded-full bg-white dark:bg-slate-800 flex items-center justify-center text-slate-500 dark:text-slate-400 hover:text-brand-primary hover:bg-blue-50 dark:hover:text-white dark:hover:bg-slate-700 transition-all duration-300">
-                                    <i class="fa-regular fa-envelope"></i>
+                                <a href="#" data-email="edison@exstrat.co"
+                                    class="email-copy-link w-10 h-10 rounded-full bg-white dark:bg-slate-800 flex items-center justify-center text-slate-500 dark:text-slate-400 hover:text-brand-primary hover:bg-blue-50 dark:hover:text-white dark:hover:bg-slate-700 transition-all duration-300 relative group/tooltip">
+                                    <i class="fa-regular fa-envelope transition-all duration-300"></i>
+                                    <span
+                                        class="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-slate-900 text-white text-xs py-1 px-2 rounded opacity-0 group-hover/tooltip:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">Copy
+                                        Email</span>
                                 </a>
                             </div>
                         </div>
@@ -410,7 +416,7 @@
 
             // In teams.html, we observe the 'teams' section to trigger dark mode for this page content, similar to services.html
             const teamsSection = document.getElementById('teams');
-            if (teamsSection) darkModeObserver.observe(teamsSection);
+            // if (teamsSection) darkModeObserver.observe(teamsSection);
 
             // --- Navbar Logic ---
             function updateNavbarStyle(isDark, isScrolled) {
@@ -493,6 +499,32 @@
 
             // --- Footer Year ---
             document.getElementById('year').textContent = new Date().getFullYear();
+
+            // --- Email Copy Logic ---
+            document.querySelectorAll('.email-copy-link').forEach(link => {
+                link.addEventListener('click', async (e) => {
+                    e.preventDefault();
+                    const email = link.getAttribute('data-email');
+                    const icon = link.querySelector('i');
+                    const tooltip = link.querySelector('span');
+
+                    try {
+                        await navigator.clipboard.writeText(email);
+
+                        // Visual Feedback
+                        const originalClass = icon.className;
+                        icon.className = 'fa-solid fa-check text-green-500 text-lg transition-all duration-300';
+                        if (tooltip) tooltip.textContent = 'Copied!';
+
+                        setTimeout(() => {
+                            icon.className = originalClass;
+                            if (tooltip) tooltip.textContent = 'Copy Email';
+                        }, 2000);
+                    } catch (err) {
+                        console.error('Failed to copy text: ', err);
+                    }
+                });
+            });
         });
     </script>
 </body>
