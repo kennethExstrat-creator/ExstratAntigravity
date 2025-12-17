@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Our Team | Exstrat Ventures</title>
+    <meta name="description" content="Meet the partners driving sustainable growth at Exstrat Ventures." />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap"
+        rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            primary: '#2563eb',   // Blue 600
+                            secondary: '#9333ea', // Purple 600
+                            dark: '#1e1b4b',      // Indigo 950
+                        },
+                        slate: {
+                            50: '#f8fafc',
+                            950: '#020617', // Custom dark slate
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    backgroundImage: {
+                        'gemini-gradient': 'linear-gradient(135deg, #2563eb 0%, #9333ea 100%)',
+                        'gemini-mesh': 'radial-gradient(at 0% 0%, rgba(37, 99, 235, 0.15) 0px, transparent 50%), radial-gradient(at 100% 100%, rgba(147, 51, 234, 0.15) 0px, transparent 50%)',
+                        'gemini-dark-mesh': 'radial-gradient(at 0% 0%, rgba(37, 99, 235, 0.3) 0px, transparent 50%), radial-gradient(at 100% 100%, rgba(147, 51, 234, 0.3) 0px, transparent 50%)',
+                    },
+                    animation: {
+                        'fade-in-right': 'fadeInRight 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+                        'fade-in-down': 'fadeInDown 0.5s ease-out forwards',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        fadeInRight: {
+                            'from': { opacity: '0', transform: 'translateX(20px)' },
+                            'to': { opacity: '1', transform: 'translateX(0)' },
+                        },
+                        fadeInDown: {
+                            'from': { opacity: '0', transform: 'translateY(-10px)' },
+                            'to': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, #2563eb 0%, #9333ea 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .bg-gradient-brand {
+            background: linear-gradient(135deg, #2563eb 0%, #9333ea 100%);
+        }
+
+        /* Transition base */
+        .transition-colors-global {
+            transition-property: background-color, border-color, color, fill, stroke, opacity;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 700ms;
+        }
+
+        /* Utilities */
+        .backdrop-blur-md {
+            backdrop-filter: blur(12px);
+        }
+
+        /* Hide scrollbar for cleaner look */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+
+        .dark ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 5px;
+        }
+
+        .dark ::-webkit-scrollbar-thumb {
+            background: #334155;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+
+<body
+    class="text-slate-900 antialiased selection:bg-brand-primary selection:text-white transition-colors-global bg-slate-50 relative">
+
+    <!-- Global Backgrounds -->
+    <div id="bg-light" class="fixed inset-0 z-0 bg-slate-50 transition-opacity duration-1000 ease-in-out">
+        <div class="absolute inset-0 bg-gemini-mesh opacity-50"></div>
+    </div>
+
+    <div id="bg-dark" class="fixed inset-0 z-0 bg-slate-950 transition-opacity duration-1000 ease-in-out opacity-0">
+        <div class="absolute inset-0 bg-gradient-to-br from-[#0f172a] via-[#1e1b4b] to-[#4c1d95]"></div>
+        <div class="absolute inset-0 bg-gemini-dark-mesh opacity-60 mix-blend-screen"></div>
+        <div
+            class="absolute top-0 left-1/4 w-[500px] h-[500px] bg-brand-primary/20 rounded-full blur-[120px] animate-pulse-slow mix-blend-screen">
+        </div>
+        <div class="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-brand-secondary/20 rounded-full blur-[120px] animate-pulse-slow mix-blend-screen"
+            style="animation-delay: 1s;"></div>
+    </div>
+
+    <!-- Main Content Wrapper -->
+    <div class="relative z-10">
+
+        <!-- Navbar -->
+        <nav id="navbar" class="fixed w-full z-50 transition-all duration-500 py-3 bg-transparent">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center">
+                    <div class="flex items-center">
+                        <a href="index.html#home"
+                            class="text-2xl font-serif font-bold tracking-wider flex items-center gap-2 group transition-colors duration-500 text-slate-900 logo-text">
+                            <div
+                                class="w-8 h-8 rounded-lg bg-gradient-brand flex items-center justify-center text-white shadow-lg group-hover:shadow-blue-500/30 transition-shadow">
+                                <i class="fa-solid fa-chess-knight text-sm"></i>
+                            </div>
+                            <span>Exstrat.</span>
+                        </a>
+                    </div>
+
+                    <!-- Desktop Menu -->
+                    <div class="hidden md:flex items-center space-x-8">
+                        <a href="index.html#home"
+                            class="nav-item text-sm font-medium transition-colors duration-300 text-slate-700 hover:text-brand-primary">Home</a>
+                        <a href="index.html#approach"
+                            class="nav-item text-sm font-medium transition-colors duration-300 text-slate-700 hover:text-brand-primary">Our
+                            Approach</a>
+                        <a href="services.html"
+                            class="nav-item text-sm font-medium transition-colors duration-300 text-slate-700 hover:text-brand-primary">Our
+                            Services</a>
+                        <a href="teams.html"
+                            class="nav-item text-sm font-bold text-brand-primary dark:text-white transition-colors duration-300">Teams</a>
+                        <a href="index.html#about"
+                            class="nav-item text-sm font-medium transition-colors duration-300 text-slate-700 hover:text-brand-primary">About
+                            Us</a>
+                        <a href="index.html#contact"
+                            class="nav-item text-sm font-medium transition-colors duration-300 text-slate-700 hover:text-brand-primary">Contact
+                            Us</a>
+
+                        <a href="https://calendly.com/kenneth-exstrat/30min" target="_blank" rel="noopener noreferrer"
+                            class="px-6 py-2.5 bg-gradient-brand text-white hover:opacity-90 transition-all duration-300 rounded-full font-semibold text-sm shadow-md hover:shadow-lg hover:shadow-blue-500/30 transform hover:-translate-y-0.5">
+                            Book Now
+                        </a>
+                    </div>
+
+                    <!-- Mobile Menu Button -->
+                    <div class="md:hidden flex items-center">
+                        <button id="mobile-menu-btn"
+                            class="transition-colors duration-300 focus:outline-none text-slate-800 mobile-btn-icon">
+                            <i class="fa-solid fa-bars text-2xl"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile Menu Dropdown -->
+            <div id="mobile-menu"
+                class="md:hidden absolute top-full left-0 w-full transition-all duration-300 ease-in-out overflow-hidden max-h-0 opacity-0 bg-white border-t border-slate-100 shadow-xl">
+                <div class="flex flex-col px-4 py-6 space-y-4">
+                    <a href="index.html#home"
+                        class="mobile-nav-link block text-center font-medium text-slate-700 hover:text-brand-primary transition-colors">Home</a>
+                    <a href="index.html#approach"
+                        class="mobile-nav-link block text-center font-medium text-slate-700 hover:text-brand-primary transition-colors">Our
+                        Approach</a>
+                    <a href="services.html"
+                        class="mobile-nav-link block text-center font-medium text-slate-700 hover:text-brand-primary transition-colors">Our
+                        Services</a>
+                    <a href="teams.html"
+                        class="mobile-nav-link block text-center font-bold text-brand-primary hover:text-brand-primary transition-colors">Teams</a>
+                    <a href="index.html#about"
+                        class="mobile-nav-link block text-center font-medium text-slate-700 hover:text-brand-primary transition-colors">About
+                        Us</a>
+                    <a href="index.html#contact"
+                        class="mobile-nav-link block text-center font-medium text-slate-700 hover:text-brand-primary transition-colors">Contact
+                        Us</a>
+                    <a href="https://calendly.com/kenneth-exstrat/30min" target="_blank" rel="noopener noreferrer"
+                        class="block w-full text-center px-6 py-3 bg-gradient-brand text-white font-bold rounded-full shadow-lg">
+                        Schedule Consultation
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+        <main class="pt-24">
+            <!-- Teams Page Header -->
+            <section class="py-16 text-center">
+                <div class="container mx-auto px-4">
+                    <div
+                        class="inline-block mb-4 px-4 py-1.5 rounded-full bg-white/60 dark:bg-white/10 backdrop-blur-sm border border-slate-200/50 dark:border-white/10 shadow-sm animate-fade-in-down transition-colors-global">
+                        <span
+                            class="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary text-sm font-bold tracking-widest uppercase">
+                            Our People
+                        </span>
+                    </div>
+                    <h1
+                        class="text-4xl md:text-5xl font-serif font-bold text-slate-900 dark:text-white mb-6 leading-tight max-w-4xl mx-auto transition-colors-global">
+                        Meet The <br />
+                        <span class="text-gradient">Partners</span>
+                    </h1>
+                    <p
+                        class="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto font-normal leading-relaxed transition-colors-global">
+                        The experts dedicated to your success, bringing years of experience in finance and strategy.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Partners Section -->
+            <section id="teams" class="py-12 relative overflow-hidden transition-colors-global pb-32">
+                <div class="container mx-auto px-4 relative z-10">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+                        <!-- Partner 1 -->
+                        <div
+                            class="group bg-white/60 dark:bg-slate-900/40 backdrop-blur-md rounded-3xl p-8 border border-slate-100 dark:border-white/5 hover:border-brand-primary/30 dark:hover:border-brand-secondary/30 shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col items-center text-center">
+                            <div
+                                class="w-48 h-48 mb-6 relative rounded-full overflow-hidden border-4 border-white dark:border-slate-800 shadow-md">
+                                <img src="profile1.jpg" alt="Partner 1"
+                                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                            </div>
+                            <h3 class="text-2xl font-serif font-bold text-slate-900 dark:text-white mb-2">Partner One
+                            </h3>
+                            <p
+                                class="text-brand-primary dark:text-brand-secondary font-medium mb-4 text-sm tracking-wide uppercase">
+                                Managing Director</p>
+                            <p class="text-slate-600 dark:text-slate-400 mb-6 leading-relaxed">
+                                Expert in financial modeling and strategic planning with over 15 years of experience in
+                                the industry.
+                            </p>
+                            <div class="flex space-x-4 mt-auto">
+                                <a href="#"
+                                    class="w-10 h-10 rounded-full bg-white dark:bg-slate-800 flex items-center justify-center text-slate-500 dark:text-slate-400 hover:text-brand-primary hover:bg-blue-50 dark:hover:text-white dark:hover:bg-slate-700 transition-all duration-300">
+                                    <i class="fa-brands fa-linkedin-in"></i>
+                                </a>
+                                <a href="#"
+                                    class="w-10 h-10 rounded-full bg-white dark:bg-slate-800 flex items-center justify-center text-slate-500 dark:text-slate-400 hover:text-brand-primary hover:bg-blue-50 dark:hover:text-white dark:hover:bg-slate-700 transition-all duration-300">
+                                    <i class="fa-regular fa-envelope"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Partner 2 -->
+                        <div
+                            class="group bg-white/60 dark:bg-slate-900/40 backdrop-blur-md rounded-3xl p-8 border border-slate-100 dark:border-white/5 hover:border-brand-primary/30 dark:hover:border-brand-secondary/30 shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col items-center text-center">
+                            <div
+                                class="w-48 h-48 mb-6 relative rounded-full overflow-hidden border-4 border-white dark:border-slate-800 shadow-md">
+                                <img src="profile2.jpg" alt="Partner 2"
+                                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                            </div>
+                            <h3 class="text-2xl font-serif font-bold text-slate-900 dark:text-white mb-2">Partner Two
+                            </h3>
+                            <p
+                                class="text-brand-primary dark:text-brand-secondary font-medium mb-4 text-sm tracking-wide uppercase">
+                                Strategic Advisor</p>
+                            <p class="text-slate-600 dark:text-slate-400 mb-6 leading-relaxed">
+                                Specializing in investment relations and operational excellence, helping businesses
+                                scale effectively.
+                            </p>
+                            <div class="flex space-x-4 mt-auto">
+                                <a href="#"
+                                    class="w-10 h-10 rounded-full bg-white dark:bg-slate-800 flex items-center justify-center text-slate-500 dark:text-slate-400 hover:text-brand-primary hover:bg-blue-50 dark:hover:text-white dark:hover:bg-slate-700 transition-all duration-300">
+                                    <i class="fa-brands fa-linkedin-in"></i>
+                                </a>
+                                <a href="#"
+                                    class="w-10 h-10 rounded-full bg-white dark:bg-slate-800 flex items-center justify-center text-slate-500 dark:text-slate-400 hover:text-brand-primary hover:bg-blue-50 dark:hover:text-white dark:hover:bg-slate-700 transition-all duration-300">
+                                    <i class="fa-regular fa-envelope"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Footer -->
+        <footer
+            class="bg-white/30 dark:bg-slate-900/30 backdrop-blur-sm border-t border-slate-200/50 dark:border-white/10 pt-16 pb-8 transition-colors-global">
+            <div class="container mx-auto px-4">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                    <div class="col-span-1 md:col-span-2">
+                        <a href="index.html#home"
+                            class="text-2xl font-serif font-bold text-slate-900 dark:text-white mb-4 block flex items-center gap-2 transition-colors-global logo-text">
+                            <span class="text-transparent bg-clip-text bg-gradient-brand">Exstrat Ventures</span>
+                        </a>
+                        <p
+                            class="text-slate-500 dark:text-slate-400 max-w-sm mb-6 leading-relaxed transition-colors-global">
+                            Your Strategic Partner for Sustainable Growth. We help businesses align their vision with
+                            actionable goals through comprehensive financial and management consulting.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h4
+                            class="text-slate-900 dark:text-white font-bold mb-4 uppercase text-sm tracking-wider transition-colors-global">
+                            Quick Links</h4>
+                        <ul class="space-y-3">
+                            <li><a href="index.html#home"
+                                    class="text-slate-500 dark:text-slate-400 hover:text-brand-primary dark:hover:text-white transition-colors text-sm">Home</a>
+                            </li>
+                            <li><a href="index.html#approach"
+                                    class="text-slate-500 dark:text-slate-400 hover:text-brand-primary dark:hover:text-white transition-colors text-sm">Our
+                                    Approach</a></li>
+                            <li><a href="services.html"
+                                    class="text-slate-500 dark:text-slate-400 hover:text-brand-primary dark:hover:text-white transition-colors text-sm">Services</a>
+                            </li>
+                            <li><a href="teams.html"
+                                    class="text-brand-primary dark:text-white font-medium transition-colors text-sm">Teams</a>
+                            </li>
+                            <li><a href="index.html#about"
+                                    class="text-slate-500 dark:text-slate-400 hover:text-brand-primary dark:hover:text-white transition-colors text-sm">About
+                                    Us</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4
+                            class="text-slate-900 dark:text-white font-bold mb-4 uppercase text-sm tracking-wider transition-colors-global">
+                            Legal</h4>
+                        <ul class="space-y-3">
+                            <li><a href="#"
+                                    class="text-slate-500 dark:text-slate-400 hover:text-brand-primary dark:hover:text-white transition-colors text-sm">Privacy
+                                    Policy</a></li>
+                            <li><a href="#"
+                                    class="text-slate-500 dark:text-slate-400 hover:text-brand-primary dark:hover:text-white transition-colors text-sm">Terms
+                                    of Service</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div
+                    class="border-t border-slate-200/50 dark:border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-slate-400 dark:text-slate-500 transition-colors-global">
+                    <p>&copy; <span id="year"></span> Exstrat Ventures. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- Dark Mode Logic ---
+            const bgLight = document.getElementById('bg-light');
+            const bgDark = document.getElementById('bg-dark');
+            const navbar = document.getElementById('navbar');
+            const navLinks = document.querySelectorAll('.nav-item');
+            const logoText = document.querySelectorAll('.logo-text');
+
+            const darkModeObserver = new IntersectionObserver(
+                ([entry]) => {
+                    if (entry.isIntersecting) {
+                        document.documentElement.classList.add('dark');
+                        bgLight.classList.add('opacity-0');
+                        bgLight.classList.remove('opacity-100');
+                        bgDark.classList.add('opacity-100');
+                        bgDark.classList.remove('opacity-0');
+                        updateNavbarStyle(true, window.scrollY > 20);
+                    } else {
+                        document.documentElement.classList.remove('dark');
+                        bgLight.classList.add('opacity-100');
+                        bgLight.classList.remove('opacity-0');
+                        bgDark.classList.add('opacity-0');
+                        bgDark.classList.remove('opacity-100');
+                        updateNavbarStyle(false, window.scrollY > 20);
+                    }
+                },
+                { threshold: 0.1, rootMargin: "-10% 0px -10% 0px" }
+            );
+
+            // In teams.html, we observe the 'teams' section to trigger dark mode for this page content, similar to services.html
+            const teamsSection = document.getElementById('teams');
+            if (teamsSection) darkModeObserver.observe(teamsSection);
+
+            // --- Navbar Logic ---
+            function updateNavbarStyle(isDark, isScrolled) {
+                if (isScrolled) {
+                    navbar.className = `fixed w-full z-50 transition-all duration-500 py-3 ${isDark
+                        ? 'bg-[#0f172a]/80 backdrop-blur-md shadow-lg border-b border-white/10'
+                        : 'bg-white/90 backdrop-blur-md shadow-sm border-b border-slate-200'}`;
+
+                    navLinks.forEach(link => {
+                        // Check if active link by href
+                        const href = link.getAttribute('href');
+                        if (href === 'teams.html') return;
+
+                        link.className = `nav-link-smooth nav-item text-sm font-medium transition-colors duration-300 ${isDark
+                            ? 'text-slate-300 hover:text-white'
+                            : 'text-slate-600 hover:text-brand-primary'}`;
+                    });
+
+                    logoText.forEach(el => {
+                        if (el.tagName === 'A') {
+                            el.classList.remove('text-slate-900');
+                            el.classList.toggle('text-white', isDark);
+                            el.classList.toggle('text-slate-900', !isDark);
+                        }
+                    });
+
+                } else {
+                    navbar.className = 'fixed w-full z-50 transition-all duration-500 py-3 bg-transparent';
+                    navLinks.forEach(link => {
+                        // Check if active link by href
+                        const href = link.getAttribute('href');
+                        if (href === 'teams.html') return;
+
+                        link.className = `nav-link-smooth nav-item text-sm font-medium transition-colors duration-300 ${isDark
+                            ? 'text-slate-200 hover:text-white'
+                            : 'text-slate-700 hover:text-brand-primary'}`;
+                    });
+                    logoText.forEach(el => {
+                        if (el.tagName === 'A') {
+                            el.classList.toggle('text-white', isDark);
+                            el.classList.toggle('text-slate-900', !isDark);
+                        }
+                    });
+                }
+            }
+
+            window.addEventListener('scroll', () => {
+                const isDark = document.documentElement.classList.contains('dark');
+                updateNavbarStyle(isDark, window.scrollY > 20);
+            });
+
+            // --- Mobile Menu ---
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileIcon = mobileBtn.querySelector('i');
+
+            mobileBtn.addEventListener('click', () => {
+                const isOpen = mobileMenu.classList.contains('max-h-96');
+                if (isOpen) {
+                    mobileMenu.classList.remove('max-h-96', 'opacity-100');
+                    mobileMenu.classList.add('max-h-0', 'opacity-0');
+                    mobileIcon.classList.remove('fa-xmark');
+                    mobileIcon.classList.add('fa-bars');
+                } else {
+                    mobileMenu.classList.add('max-h-96', 'opacity-100');
+                    mobileMenu.classList.remove('max-h-0', 'opacity-0');
+                    mobileIcon.classList.remove('fa-bars');
+                    mobileIcon.classList.add('fa-xmark');
+                }
+            });
+
+            document.querySelectorAll('.mobile-nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.remove('max-h-96', 'opacity-100');
+                    mobileMenu.classList.add('max-h-0', 'opacity-0');
+                    mobileIcon.classList.remove('fa-xmark');
+                    mobileIcon.classList.add('fa-bars');
+                });
+            });
+
+            // --- Footer Year ---
+            document.getElementById('year').textContent = new Date().getFullYear();
+        });
+    </script>
+</body>
+
+</html>

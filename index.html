@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Exstrat Ventures | Strategic Financial Consulting</title>
+  <meta name="description" content="Your Strategic Partner for Sustainable Growth." />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap"
+    rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              primary: '#2563eb',   // Blue 600
+              secondary: '#9333ea', // Purple 600
+              dark: '#1e1b4b',      // Indigo 950
+            },
+            slate: {
+              50: '#f8fafc',
+              950: '#020617', // Custom dark slate
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['Playfair Display', 'serif'],
+          },
+          backgroundImage: {
+            'gemini-gradient': 'linear-gradient(135deg, #2563eb 0%, #9333ea 100%)',
+            'gemini-mesh': 'radial-gradient(at 0% 0%, rgba(37, 99, 235, 0.15) 0px, transparent 50%), radial-gradient(at 100% 100%, rgba(147, 51, 234, 0.15) 0px, transparent 50%)',
+            'gemini-dark-mesh': 'radial-gradient(at 0% 0%, rgba(37, 99, 235, 0.3) 0px, transparent 50%), radial-gradient(at 100% 100%, rgba(147, 51, 234, 0.3) 0px, transparent 50%)',
+          },
+          animation: {
+            'fade-in-right': 'fadeInRight 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+            'fade-in-down': 'fadeInDown 0.5s ease-out forwards',
+            'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+          },
+          keyframes: {
+            fadeInRight: {
+              'from': { opacity: '0', transform: 'translateX(20px)' },
+              'to': { opacity: '1', transform: 'translateX(0)' },
+            },
+            fadeInDown: {
+              'from': { opacity: '0', transform: 'translateY(-10px)' },
+              'to': { opacity: '1', transform: 'translateY(0)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+
+    .font-serif {
+      font-family: 'Playfair Display', serif;
+    }
+
+    .text-gradient {
+      background: linear-gradient(135deg, #2563eb 0%, #9333ea 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .bg-gradient-brand {
+      background: linear-gradient(135deg, #2563eb 0%, #9333ea 100%);
+    }
+
+    /* Transition base */
+    .transition-colors-global {
+      transition-property: background-color, border-color, color, fill, stroke, opacity;
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      transition-duration: 700ms;
+    }
+
+    /* Utilities */
+    .backdrop-blur-md {
+      backdrop-filter: blur(12px);
+    }
+
+    /* Hide scrollbar for cleaner look if needed */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #f1f5f9;
+    }
+
+    .dark ::-webkit-scrollbar-track {
+      background: #0f172a;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 5px;
+    }
+
+    .dark ::-webkit-scrollbar-thumb {
+      background: #334155;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+  </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.1",
+    "react/": "https://aistudiocdn.com/react@^19.2.1/"
+  }
+}
+</script>
+  <link rel="stylesheet" href="/index.css">
+</head>
+
+<body
+  class="text-slate-900 antialiased selection:bg-brand-primary selection:text-white transition-colors-global bg-slate-50 relative">
+
+  <!-- Global Backgrounds -->
+  <!-- Light Mode Background -->
+  <div id="bg-light" class="fixed inset-0 z-0 bg-slate-50 transition-opacity duration-1000 ease-in-out">
+    <div class="absolute inset-0 bg-gemini-mesh opacity-50"></div>
+  </div>
+
+  <!-- Dark Mode Background -->
+  <div id="bg-dark" class="fixed inset-0 z-0 bg-slate-950 transition-opacity duration-1000 ease-in-out opacity-0">
+    <div class="absolute inset-0 bg-gradient-to-br from-[#0f172a] via-[#1e1b4b] to-[#4c1d95]"></div>
+    <div class="absolute inset-0 bg-gemini-dark-mesh opacity-60 mix-blend-screen"></div>
+    <div
+      class="absolute top-0 left-1/4 w-[500px] h-[500px] bg-brand-primary/20 rounded-full blur-[120px] animate-pulse-slow mix-blend-screen">
+    </div>
+    <div
+      class="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-brand-secondary/20 rounded-full blur-[120px] animate-pulse-slow mix-blend-screen"
+      style="animation-delay: 1s;"></div>
+  </div>
+
+  <!-- Main Content Wrapper -->
+  <div class="relative z-10">
+
+    <!-- Navbar -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-500 py-3 bg-transparent">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center">
+          <div class="flex items-center">
+            <a href="#home"
+              class="nav-link-smooth text-2xl font-serif font-bold tracking-wider flex items-center gap-2 group transition-colors duration-500 text-slate-900 logo-text">
+              <div
+                class="w-8 h-8 rounded-lg bg-gradient-brand flex items-center justify-center text-white shadow-lg group-hover:shadow-blue-500/30 transition-shadow">
+                <i class="fa-solid fa-chess-knight text-sm"></i>
+              </div>
+              <span>Exstrat.</span>
+            </a>
+          </div>
+
+          <!-- Desktop Menu -->
+          <div class="hidden md:flex items-center space-x-8">
+            <a href="#home"
+              class="nav-link-smooth nav-item text-sm font-medium transition-colors duration-300 text-slate-700 hover:text-brand-primary">Home</a>
+            <a href="#approach"
+              class="nav-link-smooth nav-item text-sm font-medium transition-colors duration-300 text-slate-700 hover:text-brand-primary">Our
+              Approach</a>
+            <!-- Linked to new page -->
+            <a href="services.html"
+              class="nav-item text-sm font-medium transition-colors duration-300 text-slate-700 hover:text-brand-primary">Our
+              Services</a>
+            <a href="teams.html"
+              class="nav-item text-sm font-medium transition-colors duration-300 text-slate-700 hover:text-brand-primary">Teams</a>
+            <a href="#about"
+              class="nav-link-smooth nav-item text-sm font-medium transition-colors duration-300 text-slate-700 hover:text-brand-primary">About
+              Us</a>
+            <a href="#contact"
+              class="nav-link-smooth nav-item text-sm font-medium transition-colors duration-300 text-slate-700 hover:text-brand-primary">Contact
+              Us</a>
+
+            <a href="https://calendly.com/kenneth-exstrat/30min" target="_blank" rel="noopener noreferrer"
+              class="px-6 py-2.5 bg-gradient-brand text-white hover:opacity-90 transition-all duration-300 rounded-full font-semibold text-sm shadow-md hover:shadow-lg hover:shadow-blue-500/30 transform hover:-translate-y-0.5">
+              Book Now
+            </a>
+          </div>
+
+          <!-- Mobile Menu Button -->
+          <div class="md:hidden flex items-center">
+            <button id="mobile-menu-btn"
+              class="transition-colors duration-300 focus:outline-none text-slate-800 mobile-btn-icon">
+              <i class="fa-solid fa-bars text-2xl"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Menu Dropdown -->
+      <div id="mobile-menu"
+        class="md:hidden absolute top-full left-0 w-full transition-all duration-300 ease-in-out overflow-hidden max-h-0 opacity-0 bg-white border-t border-slate-100 shadow-xl">
+        <div class="flex flex-col px-4 py-6 space-y-4">
+          <a href="#home"
+            class="mobile-nav-link block text-center font-medium text-slate-700 hover:text-brand-primary transition-colors">Home</a>
+          <a href="#approach"
+            class="mobile-nav-link block text-center font-medium text-slate-700 hover:text-brand-primary transition-colors">Our
+            Approach</a>
+          <a href="services.html"
+            class="mobile-nav-link block text-center font-medium text-slate-700 hover:text-brand-primary transition-colors">Our
+            Services</a>
+          <a href="teams.html"
+            class="mobile-nav-link block text-center font-medium text-slate-700 hover:text-brand-primary transition-colors">Teams</a>
+          <a href="#about"
+            class="mobile-nav-link block text-center font-medium text-slate-700 hover:text-brand-primary transition-colors">About
+            Us</a>
+          <a href="#contact"
+            class="mobile-nav-link block text-center font-medium text-slate-700 hover:text-brand-primary transition-colors">Contact
+            Us</a>
+          <a href="https://calendly.com/kenneth-exstrat/30min" target="_blank" rel="noopener noreferrer"
+            class="block w-full text-center px-6 py-3 bg-gradient-brand text-white font-bold rounded-full shadow-lg">
+            Schedule Consultation
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <!-- Hero Section -->
+      <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <!-- Decorative Circles -->
+        <div
+          class="absolute top-20 right-0 w-96 h-96 bg-brand-primary/10 rounded-full blur-3xl -mr-40 pointer-events-none mix-blend-multiply dark:mix-blend-normal dark:bg-brand-primary/20">
+        </div>
+        <div
+          class="absolute bottom-0 left-0 w-96 h-96 bg-brand-secondary/10 rounded-full blur-3xl -ml-40 pointer-events-none mix-blend-multiply dark:mix-blend-normal dark:bg-brand-secondary/20">
+        </div>
+
+        <div class="container mx-auto px-4 z-10 text-center relative">
+          <div
+            class="inline-block mb-6 px-4 py-1.5 rounded-full bg-white/60 dark:bg-white/10 backdrop-blur-sm border border-slate-200/50 dark:border-white/10 shadow-sm animate-fade-in-down transition-colors-global">
+            <span
+              class="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary text-sm font-bold tracking-widest uppercase">
+              Exstrat Ventures
+            </span>
+          </div>
+
+          <h1
+            class="text-4xl md:text-6xl lg:text-7xl font-serif font-bold text-slate-900 dark:text-white mb-6 leading-tight max-w-5xl mx-auto transition-colors-global">
+            Your Strategic Partner for <br />
+            <span class="text-gradient">Sustainable Growth</span>.
+          </h1>
+
+          <p
+            class="text-lg md:text-xl text-slate-600 dark:text-slate-300 mb-10 max-w-2xl mx-auto font-normal leading-relaxed transition-colors-global">
+            Providing comprehensive financial and management consulting to bridge the gap between <span
+              class="font-semibold text-slate-900 dark:text-white">strategy</span> and <span
+              class="font-semibold text-slate-900 dark:text-white">execution</span>.
+          </p>
+
+          <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <a href="https://calendly.com/kenneth-exstrat/30min" target="_blank" rel="noopener noreferrer"
+              class="group relative px-8 py-4 bg-gradient-brand text-white font-bold text-lg rounded-full shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 transition-all duration-300 transform hover:-translate-y-1 inline-flex items-center">
+              Schedule a Consultation
+              <i class="fa-solid fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+            </a>
+
+            <a href="#approach"
+              class="nav-link-smooth px-8 py-4 text-slate-700 dark:text-slate-200 bg-white/60 dark:bg-white/10 backdrop-blur-md border border-slate-200/60 dark:border-white/10 hover:border-brand-primary dark:hover:border-brand-secondary hover:text-brand-primary dark:hover:text-white rounded-full transition-all duration-300 font-medium shadow-sm hover:shadow-md">
+              Learn Our Approach
+            </a>
+          </div>
+        </div>
+
+        <!-- Scroll Down Indicator: Point to Services Page -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce hidden md:block">
+          <a href="services.html"
+            class="text-slate-400 hover:text-brand-primary dark:hover:text-white transition-colors">
+            <i class="fa-solid fa-chevron-down text-2xl"></i>
+          </a>
+        </div>
+      </section>
+
+      <!-- Approach Section -->
+      <section id="approach" class="py-24 relative transition-colors-global">
+        <div class="container mx-auto px-4">
+          <div class="text-center mb-16">
+            <h2
+              class="text-brand-primary dark:text-brand-secondary font-bold uppercase tracking-widest text-sm mb-2 transition-colors-global">
+              Our Methodology</h2>
+            <h3
+              class="text-3xl md:text-4xl font-serif text-slate-900 dark:text-white font-bold transition-colors-global">
+              From Vision to Reality</h3>
+            <div class="w-24 h-1 bg-gradient-brand mx-auto mt-6 rounded-full opacity-80"></div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
+            <!-- Card 1 -->
+            <div
+              class="bg-white/70 dark:bg-slate-800/40 backdrop-blur-md border border-white/50 dark:border-white/5 rounded-2xl p-8 hover:bg-white/90 dark:hover:bg-slate-800/60 hover:border-brand-primary/20 dark:hover:border-brand-secondary/30 transition-all duration-300 group shadow-sm hover:shadow-xl hover:shadow-blue-900/5 transform hover:-translate-y-2 hover:scale-105">
+              <div class="flex items-center justify-between mb-6">
+                <div
+                  class="w-14 h-14 rounded-xl flex items-center justify-center bg-white dark:bg-slate-700 shadow-md border border-slate-100 dark:border-slate-600 group-hover:scale-110 transition-transform duration-300">
+                  <i
+                    class="fa-solid fa-magnifying-glass-chart text-2xl text-transparent bg-clip-text bg-gradient-to-br from-brand-primary to-brand-secondary"></i>
+                </div>
+                <span
+                  class="text-5xl font-serif font-bold text-slate-200 dark:text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-b group-hover:from-slate-200 group-hover:to-slate-100 dark:group-hover:from-white dark:group-hover:to-slate-200 transition-colors select-none">01</span>
+              </div>
+              <h4 class="text-2xl font-bold text-slate-900 dark:text-white mb-2 transition-colors-global">Assess</h4>
+              <p class="text-slate-600 dark:text-slate-400 mb-6 min-h-[48px] leading-relaxed transition-colors-global">
+                Aligning business vision with actionable goals.</p>
+              <ul class="space-y-3">
+                <li class="flex items-start text-sm text-slate-600 dark:text-slate-400 transition-colors-global">
+                  <div
+                    class="mt-1 mr-3 w-4 h-4 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center flex-shrink-0">
+                    <i class="fa-solid fa-check text-green-600 dark:text-green-400 text-[10px]"></i>
+                  </div>
+                  <span>Ecosystem Mapping</span>
+                </li>
+                <li class="flex items-start text-sm text-slate-600 dark:text-slate-400 transition-colors-global">
+                  <div
+                    class="mt-1 mr-3 w-4 h-4 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center flex-shrink-0">
+                    <i class="fa-solid fa-check text-green-600 dark:text-green-400 text-[10px]"></i>
+                  </div>
+                  <span>Competitive Landscape Analysis</span>
+                </li>
+                <li class="flex items-start text-sm text-slate-600 dark:text-slate-400 transition-colors-global">
+                  <div
+                    class="mt-1 mr-3 w-4 h-4 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center flex-shrink-0">
+                    <i class="fa-solid fa-check text-green-600 dark:text-green-400 text-[10px]"></i>
+                  </div><span>Business
+                    Profile Development</span>
+                </li>
+                <li class="flex items-start text-sm text-slate-600 dark:text-slate-400 transition-colors-global">
+                  <div
+                    class="mt-1 mr-3 w-4 h-4 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center flex-shrink-0">
+                    <i class="fa-solid fa-check text-green-600 dark:text-green-400 text-[10px]"></i>
+                  </div>
+                  <span>Compliance Review</span>
+                </li>
+              </ul>
+            </div>
+            <!-- Card 2 -->
+            <div
+              class="bg-white/70 dark:bg-slate-800/40 backdrop-blur-md border border-white/50 dark:border-white/5 rounded-2xl p-8 hover:bg-white/90 dark:hover:bg-slate-800/60 hover:border-brand-primary/20 dark:hover:border-brand-secondary/30 transition-all duration-300 group shadow-sm hover:shadow-xl hover:shadow-blue-900/5 transform hover:-translate-y-2 hover:scale-105">
+              <div class="flex items-center justify-between mb-6">
+                <div
+                  class="w-14 h-14 rounded-xl flex items-center justify-center bg-white dark:bg-slate-700 shadow-md border border-slate-100 dark:border-slate-600 group-hover:scale-110 transition-transform duration-300">
+                  <i
+                    class="fa-solid fa-pen-ruler text-2xl text-transparent bg-clip-text bg-gradient-to-br from-brand-primary to-brand-secondary"></i>
+                </div>
+                <span
+                  class="text-5xl font-serif font-bold text-slate-200 dark:text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-b group-hover:from-slate-200 group-hover:to-slate-100 dark:group-hover:from-white dark:group-hover:to-slate-200 transition-colors select-none">02</span>
+              </div>
+              <h4 class="text-2xl font-bold text-slate-900 dark:text-white mb-2 transition-colors-global">Create</h4>
+              <p class="text-slate-600 dark:text-slate-400 mb-6 min-h-[48px] leading-relaxed transition-colors-global">
+                Tracking progress and forecasting growth.</p>
+              <ul class="space-y-3">
+                <li class="flex items-start text-sm text-slate-600 dark:text-slate-400 transition-colors-global">
+                  <div
+                    class="mt-1 mr-3 w-4 h-4 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center flex-shrink-0">
+                    <i class="fa-solid fa-check text-green-600 dark:text-green-400 text-[10px]"></i>
+                  </div>
+                  <span>Financial Forecast</span>
+                </li>
+                <li class="flex items-start text-sm text-slate-600 dark:text-slate-400 transition-colors-global">
+                  <div
+                    class="mt-1 mr-3 w-4 h-4 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center flex-shrink-0">
+                    <i class="fa-solid fa-check text-green-600 dark:text-green-400 text-[10px]"></i>
+                  </div><span>Budget
+                    Planning</span>
+                </li>
+                <li class="flex items-start text-sm text-slate-600 dark:text-slate-400 transition-colors-global">
+                  <div
+                    class="mt-1 mr-3 w-4 h-4 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center flex-shrink-0">
+                    <i class="fa-solid fa-check text-green-600 dark:text-green-400 text-[10px]"></i>
+                  </div><span>KPI
+                    Defining</span>
+                </li>
+                <li class="flex items-start text-sm text-slate-600 dark:text-slate-400 transition-colors-global">
+                  <div
+                    class="mt-1 mr-3 w-4 h-4 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center flex-shrink-0">
+                    <i class="fa-solid fa-check text-green-600 dark:text-green-400 text-[10px]"></i>
+                  </div><span>BI
+                    Analytics</span>
+                </li>
+              </ul>
+            </div>
+            <!-- Card 3 -->
+            <div
+              class="bg-white/70 dark:bg-slate-800/40 backdrop-blur-md border border-white/50 dark:border-white/5 rounded-2xl p-8 hover:bg-white/90 dark:hover:bg-slate-800/60 hover:border-brand-primary/20 dark:hover:border-brand-secondary/30 transition-all duration-300 group shadow-sm hover:shadow-xl hover:shadow-blue-900/5 transform hover:-translate-y-2 hover:scale-105">
+              <div class="flex items-center justify-between mb-6">
+                <div
+                  class="w-14 h-14 rounded-xl flex items-center justify-center bg-white dark:bg-slate-700 shadow-md border border-slate-100 dark:border-slate-600 group-hover:scale-110 transition-transform duration-300">
+                  <i
+                    class="fa-solid fa-rocket text-2xl text-transparent bg-clip-text bg-gradient-to-br from-brand-primary to-brand-secondary"></i>
+                </div>
+                <span
+                  class="text-5xl font-serif font-bold text-slate-200 dark:text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-b group-hover:from-slate-200 group-hover:to-slate-100 dark:group-hover:from-white dark:group-hover:to-slate-200 transition-colors select-none">03</span>
+              </div>
+              <h4 class="text-2xl font-bold text-slate-900 dark:text-white mb-2 transition-colors-global">Execute</h4>
+              <p class="text-slate-600 dark:text-slate-400 mb-6 min-h-[48px] leading-relaxed transition-colors-global">
+                Bringing strategies to life and building workflows.</p>
+              <ul class="space-y-3">
+                <li class="flex items-start text-sm text-slate-600 dark:text-slate-400 transition-colors-global">
+                  <div
+                    class="mt-1 mr-3 w-4 h-4 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center flex-shrink-0">
+                    <i class="fa-solid fa-check text-green-600 dark:text-green-400 text-[10px]"></i>
+                  </div><span>Business
+                    Workflow</span>
+                </li>
+                <li class="flex items-start text-sm text-slate-600 dark:text-slate-400 transition-colors-global">
+                  <div
+                    class="mt-1 mr-3 w-4 h-4 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center flex-shrink-0">
+                    <i class="fa-solid fa-check text-green-600 dark:text-green-400 text-[10px]"></i>
+                  </div><span>Investor
+                    & Management Reporting</span>
+                </li>
+                <li class="flex items-start text-sm text-slate-600 dark:text-slate-400 transition-colors-global">
+                  <div
+                    class="mt-1 mr-3 w-4 h-4 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center flex-shrink-0">
+                    <i class="fa-solid fa-check text-green-600 dark:text-green-400 text-[10px]"></i>
+                  </div>
+                  <span>Operation Strategies</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Services Summary Section -->
+      <section id="services" class="py-24 relative overflow-hidden transition-colors-global">
+        <!-- Decorative elements -->
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+          <div
+            class="absolute top-1/2 left-0 -translate-y-1/2 w-[600px] h-[600px] bg-brand-primary/5 dark:bg-brand-primary/10 rounded-full blur-3xl opacity-50">
+          </div>
+          <div
+            class="absolute bottom-0 right-0 w-[600px] h-[600px] bg-brand-secondary/5 dark:bg-brand-secondary/10 rounded-full blur-3xl opacity-50">
+          </div>
+        </div>
+
+        <div class="container mx-auto px-4 relative z-10">
+          <div class="text-center mb-16">
+            <h2
+              class="text-brand-primary dark:text-brand-secondary font-bold uppercase tracking-widest text-sm mb-2 transition-colors-global">
+              Our Expertise</h2>
+            <h3
+              class="text-3xl md:text-4xl font-serif text-slate-900 dark:text-white font-bold mb-4 transition-colors-global">
+              Comprehensive Solutions</h3>
+            <p class="text-slate-600 dark:text-slate-300 max-w-2xl mx-auto leading-relaxed transition-colors-global">
+              We offer specialized strategies to drive sustainable growth. Explore our core service areas below.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+
+            <!-- Cat A -->
+            <div
+              class="group p-6 rounded-2xl bg-white/60 dark:bg-white/5 backdrop-blur-sm border border-slate-100 dark:border-white/10 hover:border-brand-primary/30 dark:hover:border-brand-secondary/30 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col items-center text-center cursor-default h-full">
+              <div
+                class="w-14 h-14 rounded-xl bg-slate-50 dark:bg-slate-800 text-brand-primary dark:text-white flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-gradient-brand group-hover:text-white transition-all duration-300 shadow-sm">
+                <i class="fa-solid fa-sack-dollar text-2xl"></i>
+              </div>
+              <h4 class="text-lg font-bold text-slate-900 dark:text-white mb-3 transition-colors-global">Investment
+                Management</h4>
+              <ul
+                class="text-sm text-slate-600 dark:text-slate-400 space-y-2 mb-6 w-full text-left bg-slate-50/50 dark:bg-slate-900/30 p-4 rounded-lg flex-grow">
+                <li class="flex items-start gap-2"><i
+                    class="fa-solid fa-check text-brand-secondary text-[10px] mt-1.5 shrink-0"></i><span
+                    class="leading-snug">Financial Forecasting</span></li>
+                <li class="flex items-start gap-2"><i
+                    class="fa-solid fa-check text-brand-secondary text-[10px] mt-1.5 shrink-0"></i><span
+                    class="leading-snug">Valuation Models</span></li>
+                <li class="text-xs text-center text-slate-400 italic pt-1">+ More</li>
+              </ul>
+            </div>
+
+            <!-- Cat B -->
+            <div
+              class="group p-6 rounded-2xl bg-white/60 dark:bg-white/5 backdrop-blur-sm border border-slate-100 dark:border-white/10 hover:border-brand-primary/30 dark:hover:border-brand-secondary/30 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col items-center text-center cursor-default h-full">
+              <div
+                class="w-14 h-14 rounded-xl bg-slate-50 dark:bg-slate-800 text-brand-primary dark:text-white flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-gradient-brand group-hover:text-white transition-all duration-300 shadow-sm">
+                <i class="fa-solid fa-handshake text-2xl"></i>
+              </div>
+              <h4 class="text-lg font-bold text-slate-900 dark:text-white mb-3 transition-colors-global">Investment
+                Relations</h4>
+              <ul
+                class="text-sm text-slate-600 dark:text-slate-400 space-y-2 mb-6 w-full text-left bg-slate-50/50 dark:bg-slate-900/30 p-4 rounded-lg flex-grow">
+                <li class="flex items-start gap-2"><i
+                    class="fa-solid fa-check text-brand-secondary text-[10px] mt-1.5 shrink-0"></i><span
+                    class="leading-snug">Pitch Deck Construction</span></li>
+                <li class="flex items-start gap-2"><i
+                    class="fa-solid fa-check text-brand-secondary text-[10px] mt-1.5 shrink-0"></i><span
+                    class="leading-snug">Investor Reporting</span></li>
+              </ul>
+            </div>
+
+            <!-- Cat C -->
+            <div
+              class="group p-6 rounded-2xl bg-white/60 dark:bg-white/5 backdrop-blur-sm border border-slate-100 dark:border-white/10 hover:border-brand-primary/30 dark:hover:border-brand-secondary/30 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col items-center text-center cursor-default h-full">
+              <div
+                class="w-14 h-14 rounded-xl bg-slate-50 dark:bg-slate-800 text-brand-primary dark:text-white flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-gradient-brand group-hover:text-white transition-all duration-300 shadow-sm">
+                <i class="fa-solid fa-people-group text-2xl"></i>
+              </div>
+              <h4 class="text-lg font-bold text-slate-900 dark:text-white mb-3 transition-colors-global">Internal
+                Management</h4>
+              <ul
+                class="text-sm text-slate-600 dark:text-slate-400 space-y-2 mb-6 w-full text-left bg-slate-50/50 dark:bg-slate-900/30 p-4 rounded-lg flex-grow">
+                <li class="flex items-start gap-2"><i
+                    class="fa-solid fa-check text-brand-secondary text-[10px] mt-1.5 shrink-0"></i><span
+                    class="leading-snug">Finance Dashboard</span></li>
+                <li class="flex items-start gap-2"><i
+                    class="fa-solid fa-check text-brand-secondary text-[10px] mt-1.5 shrink-0"></i><span
+                    class="leading-snug">Strategic Planning</span></li>
+                <li class="text-xs text-center text-slate-400 italic pt-1">+ 3 More</li>
+              </ul>
+            </div>
+
+            <!-- Cat D -->
+            <div
+              class="group p-6 rounded-2xl bg-white/60 dark:bg-white/5 backdrop-blur-sm border border-slate-100 dark:border-white/10 hover:border-brand-primary/30 dark:hover:border-brand-secondary/30 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col items-center text-center cursor-default h-full">
+              <div
+                class="w-14 h-14 rounded-xl bg-slate-50 dark:bg-slate-800 text-brand-primary dark:text-white flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-gradient-brand group-hover:text-white transition-all duration-300 shadow-sm">
+                <i class="fa-solid fa-puzzle-piece text-2xl"></i>
+              </div>
+              <h4 class="text-lg font-bold text-slate-900 dark:text-white mb-3 transition-colors-global">Customized
+                Solutions</h4>
+              <ul
+                class="text-sm text-slate-600 dark:text-slate-400 space-y-2 mb-6 w-full text-left bg-slate-50/50 dark:bg-slate-900/30 p-4 rounded-lg flex-grow">
+                <li class="flex items-start gap-2"><i
+                    class="fa-solid fa-check text-brand-secondary text-[10px] mt-1.5 shrink-0"></i><span
+                    class="leading-snug">Specialized Requests</span></li>
+                <li class="flex items-start gap-2"><i
+                    class="fa-solid fa-check text-brand-secondary text-[10px] mt-1.5 shrink-0"></i><span
+                    class="leading-snug">Tailored Approaches</span></li>
+              </ul>
+            </div>
+
+          </div>
+
+          <div class="mt-12 text-center">
+            <a href="services.html"
+              class="inline-flex items-center gap-2 px-8 py-3 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-full font-medium hover:bg-slate-800 dark:hover:bg-slate-200 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1">
+              View Full Service Details
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- About Section -->
+        <section id="about" class="py-24 relative overflow-hidden transition-colors-global">
+          <!-- Decorative elements -->
+          <div
+            class="absolute top-0 right-0 w-96 h-96 bg-brand-secondary/5 dark:bg-brand-secondary/10 rounded-full blur-3xl -mr-32 -mt-32 pointer-events-none">
+          </div>
+          <div
+            class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-brand-primary/5 dark:bg-brand-primary/10 rounded-full blur-3xl -ml-32 -mb-32 pointer-events-none">
+          </div>
+
+          <div class="container mx-auto px-4 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+              <div class="order-2 lg:order-1">
+                <div class="relative">
+                  <img src="https://picsum.photos/id/60/800/600?grayscale" alt="Team meeting"
+                    class="rounded-2xl shadow-2xl border-4 border-white/50 dark:border-white/10 relative z-10" />
+                  <div class="absolute -bottom-6 -right-6 w-2/3 h-2/3 bg-gradient-brand rounded-2xl opacity-10 -z-0">
+                  </div>
+                </div>
+              </div>
+
+              <div class="order-1 lg:order-2">
+                <h2
+                  class="text-brand-primary dark:text-brand-secondary font-bold uppercase tracking-widest text-sm mb-2 transition-colors-global">
+                  About Us</h2>
+                <h3
+                  class="text-3xl md:text-4xl font-serif text-slate-900 dark:text-white font-bold mb-6 transition-colors-global">
+                  Exstrat Ventures</h3>
+
+                <div
+                  class="space-y-4 text-slate-600 dark:text-slate-300 leading-relaxed mb-8 text-lg transition-colors-global">
+                  <p>
+                    At Exstrat Ventures, we bridge the critical gap between high-level strategy and on-the-ground
+                    execution.
+                    We understand that a vision without a roadmap is just a dream, which is why we specialize in
+                    creating
+                    sustainable frameworks for growth.
+                  </p>
+                  <p>
+                    Our team acts as an extension of your management, providing the financial discipline, investor
+                    relations expertise,
+                    and operational workflows necessary to scale efficiently in today's competitive landscape.
+                  </p>
+                </div>
+
+                <div class="grid grid-cols-2 gap-6" id="stats-container">
+                  <div>
+                    <h4 class="text-4xl font-bold text-transparent bg-clip-text bg-gradient-brand mb-1 tabular-nums">
+                      <span class="stat-counter" data-target="50">0</span>+
+                    </h4>
+                    <p class="text-xs uppercase tracking-wider text-slate-500 dark:text-slate-400 font-bold">Projects
+                      Completed</p>
+                  </div>
+                  <div>
+                    <h4 class="text-4xl font-bold text-transparent bg-clip-text bg-gradient-brand mb-1 tabular-nums">
+                      <span class="stat-counter" data-target="3">0</span>+
+                    </h4>
+                    <p class="text-xs uppercase tracking-wider text-slate-500 dark:text-slate-400 font-bold">Years
+                      Experience</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-24 relative">
+          <div class="container mx-auto px-4 max-w-5xl">
+            <div
+              class="bg-white/80 backdrop-blur-md rounded-3xl shadow-2xl overflow-hidden flex flex-col md:flex-row border border-white/50">
+
+              <!-- Contact Info Sidebar -->
+              <div
+                class="bg-gradient-to-br from-brand-primary to-brand-secondary p-10 md:w-2/5 flex flex-col justify-between text-white">
+                <div>
+                  <h3 class="text-2xl font-serif font-bold mb-6">Let's Connect</h3>
+                  <p class="text-blue-100 text-sm mb-8 leading-relaxed">
+                    Ready to transform your business strategy into actionable results? Schedule a consultation today.
+                  </p>
+
+                  <div class="space-y-6">
+                    <div class="flex items-start">
+                      <div
+                        class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center mr-4 backdrop-blur-sm">
+                        <i class="fa-solid fa-envelope text-white text-sm"></i>
+                      </div>
+                      <div>
+                        <span class="block text-xs uppercase text-blue-200 font-bold mb-1">Email</span>
+                        <a href="mailto:contact@exstrat.com"
+                          class="text-white hover:text-blue-100 transition-colors">contact@exstrat.com</a>
+                      </div>
+                    </div>
+                    <div class="flex items-start">
+                      <div
+                        class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center mr-4 backdrop-blur-sm">
+                        <i class="fa-solid fa-location-dot text-white text-sm"></i>
+                      </div>
+                      <div>
+                        <span class="block text-xs uppercase text-blue-200 font-bold mb-1">Office</span>
+                        <span class="text-white">Kuala Lumpur, Malaysia</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mt-12">
+                  <div class="flex space-x-4">
+                    <a href="#"
+                      class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white hover:text-brand-primary transition-all duration-300">
+                      <i class="fa-brands fa-linkedin-in"></i>
+                    </a>
+                    <a href="#"
+                      class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white hover:text-brand-primary transition-all duration-300">
+                      <i class="fa-brands fa-twitter"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Form -->
+              <div class="p-10 md:w-3/5">
+                <div id="form-success" class="hidden h-full flex flex-col items-center justify-center text-center">
+                  <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mb-6 animate-bounce">
+                    <i class="fa-solid fa-check text-green-500 text-3xl"></i>
+                  </div>
+                  <h4 class="text-2xl font-bold text-slate-800 mb-2">Message Sent</h4>
+                  <p class="text-slate-500">Thank you for reaching out. We will get back to you shortly.</p>
+                </div>
+
+                <form id="contact-form" class="space-y-6">
+                  <div class="grid grid-cols-1 gap-6">
+                    <div>
+                      <label for="name"
+                        class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Full Name</label>
+                      <input type="text" id="name" name="name" required
+                        class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-slate-800 focus:outline-none focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 transition-all placeholder-slate-400"
+                        placeholder="John Doe">
+                    </div>
+                    <div>
+                      <label for="email"
+                        class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Email
+                        Address</label>
+                      <input type="email" id="email" name="email" required
+                        class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-slate-800 focus:outline-none focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 transition-all placeholder-slate-400"
+                        placeholder="john@company.com">
+                    </div>
+                    <div>
+                      <label for="service"
+                        class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Service
+                        Interest</label>
+                      <div class="relative">
+                        <select id="service" name="service"
+                          class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-slate-800 focus:outline-none focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 transition-all appearance-none">
+                          <option>General Inquiry</option>
+                          <option>Investment Management</option>
+                          <option>Investment Relations</option>
+                          <option>Internal Management</option>
+                          <option>Customized Solutions</option>
+                        </select>
+                        <div
+                          class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-slate-500">
+                          <i class="fa-solid fa-chevron-down text-xs"></i>
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <label for="message"
+                        class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Message</label>
+                      <textarea id="message" name="message" rows="4" required
+                        class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-slate-800 focus:outline-none focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20 transition-all placeholder-slate-400"
+                        placeholder="Tell us about your project or goals..."></textarea>
+                    </div>
+                  </div>
+                  <button type="submit"
+                    class="w-full bg-gradient-brand hover:opacity-90 text-white font-bold py-4 rounded-lg transition-all duration-300 transform hover:-translate-y-1 shadow-lg shadow-blue-500/30">
+                    Send Message
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer
+      class="bg-white/30 dark:bg-slate-900/30 backdrop-blur-sm border-t border-slate-200/50 dark:border-white/10 pt-16 pb-8 transition-colors-global">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+          <div class="col-span-1 md:col-span-2">
+            <a href="#home"
+              class="text-2xl font-serif font-bold text-slate-900 dark:text-white mb-4 block flex items-center gap-2 transition-colors-global logo-text">
+              <span class="text-transparent bg-clip-text bg-gradient-brand">Exstrat Ventures</span>
+            </a>
+            <p class="text-slate-500 dark:text-slate-400 max-w-sm mb-6 leading-relaxed transition-colors-global">
+              Your Strategic Partner for Sustainable Growth. We help businesses align their vision with actionable goals
+              through comprehensive financial and management consulting.
+            </p>
+          </div>
+
+          <div>
+            <h4
+              class="text-slate-900 dark:text-white font-bold mb-4 uppercase text-sm tracking-wider transition-colors-global">
+              Quick Links</h4>
+            <ul class="space-y-3">
+              <li><a href="#home"
+                  class="text-slate-500 dark:text-slate-400 hover:text-brand-primary dark:hover:text-white transition-colors text-sm">Home</a>
+              </li>
+              <li><a href="#approach"
+                  class="text-slate-500 dark:text-slate-400 hover:text-brand-primary dark:hover:text-white transition-colors text-sm">Our
+                  Approach</a></li>
+              <li><a href="services.html"
+                  class="text-slate-500 dark:text-slate-400 hover:text-brand-primary dark:hover:text-white transition-colors text-sm">Services</a>
+              </li>
+              <li><a href="teams.html"
+                  class="text-slate-500 dark:text-slate-400 hover:text-brand-primary dark:hover:text-white transition-colors text-sm">Teams</a>
+              </li>
+              <li><a href="#about"
+                  class="text-slate-500 dark:text-slate-400 hover:text-brand-primary dark:hover:text-white transition-colors text-sm">About
+                  Us</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4
+              class="text-slate-900 dark:text-white font-bold mb-4 uppercase text-sm tracking-wider transition-colors-global">
+              Legal</h4>
+            <ul class="space-y-3">
+              <li><a href="#"
+                  class="text-slate-500 dark:text-slate-400 hover:text-brand-primary dark:hover:text-white transition-colors text-sm">Privacy
+                  Policy</a></li>
+              <li><a href="#"
+                  class="text-slate-500 dark:text-slate-400 hover:text-brand-primary dark:hover:text-white transition-colors text-sm">Terms
+                  of Service</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div
+          class="border-t border-slate-200/50 dark:border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-slate-400 dark:text-slate-500 transition-colors-global">
+          <p>&copy; <span id="year"></span> Exstrat Ventures. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // --- Dark Mode Logic ---
+      const bgLight = document.getElementById('bg-light');
+      const bgDark = document.getElementById('bg-dark');
+      const navbar = document.getElementById('navbar');
+      const navLinks = document.querySelectorAll('.nav-item');
+      const logoText = document.querySelectorAll('.logo-text');
+
+      const darkModeObserver = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            document.documentElement.classList.add('dark');
+            bgLight.classList.add('opacity-0');
+            bgLight.classList.remove('opacity-100');
+            bgDark.classList.add('opacity-100');
+            bgDark.classList.remove('opacity-0');
+            updateNavbarStyle(true, window.scrollY > 20);
+          } else {
+            document.documentElement.classList.remove('dark');
+            bgLight.classList.add('opacity-100');
+            bgLight.classList.remove('opacity-0');
+            bgDark.classList.add('opacity-0');
+            bgDark.classList.remove('opacity-100');
+            updateNavbarStyle(false, window.scrollY > 20);
+          }
+        },
+        { threshold: 0.3, rootMargin: "-10% 0px -10% 0px" }
+      );
+
+      // NOTE: Services section removed from index.html, so this observer will just wait for null safely.
+      const servicesSection = document.getElementById('services');
+      if (servicesSection) darkModeObserver.observe(servicesSection);
+
+      // --- Navbar Logic ---
+      function updateNavbarStyle(isDark, isScrolled) {
+        if (isScrolled) {
+          navbar.className = `fixed w-full z-50 transition-all duration-500 py-3 ${isDark
+            ? 'bg-[#0f172a]/80 backdrop-blur-md shadow-lg border-b border-white/10'
+            : 'bg-white/90 backdrop-blur-md shadow-sm border-b border-slate-200'}`;
+
+          navLinks.forEach(link => {
+            link.className = `nav-link-smooth nav-item text-sm font-medium transition-colors duration-300 ${isDark
+              ? 'text-slate-300 hover:text-white'
+              : 'text-slate-600 hover:text-brand-primary'}`;
+          });
+
+          logoText.forEach(el => {
+            if (el.tagName === 'A') {
+              el.classList.remove('text-slate-900');
+              el.classList.toggle('text-white', isDark);
+              el.classList.toggle('text-slate-900', !isDark);
+            }
+          });
+
+        } else {
+          navbar.className = 'fixed w-full z-50 transition-all duration-500 py-3 bg-transparent';
+          navLinks.forEach(link => {
+            link.className = `nav-link-smooth nav-item text-sm font-medium transition-colors duration-300 ${isDark
+              ? 'text-slate-200 hover:text-white'
+              : 'text-slate-700 hover:text-brand-primary'}`;
+          });
+          logoText.forEach(el => {
+            if (el.tagName === 'A') {
+              el.classList.toggle('text-white', isDark);
+              el.classList.toggle('text-slate-900', !isDark);
+            }
+          });
+        }
+      }
+
+      window.addEventListener('scroll', () => {
+        const isDark = document.documentElement.classList.contains('dark');
+        updateNavbarStyle(isDark, window.scrollY > 20);
+      });
+
+      // --- Smooth Scroll ---
+      document.querySelectorAll('.nav-link-smooth').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          const targetId = this.getAttribute('href');
+          // Only prevent default if it's a hash link on the current page
+          if (targetId.startsWith('#')) {
+            e.preventDefault();
+            const targetElement = document.querySelector(targetId);
+
+            if (targetElement) {
+              const headerOffset = 80;
+              const elementPosition = targetElement.getBoundingClientRect().top;
+              const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+              window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+              });
+
+              // Close mobile menu if open
+              document.getElementById('mobile-menu').classList.remove('max-h-96', 'opacity-100');
+              document.getElementById('mobile-menu').classList.add('max-h-0', 'opacity-0');
+            }
+          }
+        });
+      });
+
+      // --- Mobile Menu ---
+      const mobileBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const mobileIcon = mobileBtn.querySelector('i');
+
+      mobileBtn.addEventListener('click', () => {
+        const isOpen = mobileMenu.classList.contains('max-h-96');
+        if (isOpen) {
+          mobileMenu.classList.remove('max-h-96', 'opacity-100');
+          mobileMenu.classList.add('max-h-0', 'opacity-0');
+          mobileIcon.classList.remove('fa-xmark');
+          mobileIcon.classList.add('fa-bars');
+        } else {
+          mobileMenu.classList.add('max-h-96', 'opacity-100');
+          mobileMenu.classList.remove('max-h-0', 'opacity-0');
+          mobileIcon.classList.remove('fa-bars');
+          mobileIcon.classList.add('fa-xmark');
+        }
+      });
+
+      document.querySelectorAll('.mobile-nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.remove('max-h-96', 'opacity-100');
+          mobileMenu.classList.add('max-h-0', 'opacity-0');
+          mobileIcon.classList.remove('fa-xmark');
+          mobileIcon.classList.add('fa-bars');
+        });
+      });
+
+      // --- Count Up Animation ---
+      const counters = document.querySelectorAll('.stat-counter');
+      const statsObserver = new IntersectionObserver(
+        (entries, observer) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const counter = entry.target;
+              const target = +counter.getAttribute('data-target');
+              const duration = 2000;
+              const startTime = performance.now();
+
+              const updateCount = (currentTime) => {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                const ease = 1 - Math.pow(1 - progress, 3); // Cubic ease out
+
+                counter.innerText = Math.floor(ease * target);
+
+                if (progress < 1) {
+                  requestAnimationFrame(updateCount);
+                } else {
+                  counter.innerText = target;
+                }
+              };
+
+              requestAnimationFrame(updateCount);
+              observer.unobserve(counter);
+            }
+          });
+        },
+        { threshold: 0.5 }
+      );
+
+      counters.forEach(counter => statsObserver.observe(counter));
+
+      // --- Contact Form ---
+      const contactForm = document.getElementById('contact-form');
+      const formSuccess = document.getElementById('form-success');
+
+      if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          contactForm.classList.add('hidden');
+          formSuccess.classList.remove('hidden');
+          setTimeout(() => {
+            contactForm.reset();
+            contactForm.classList.remove('hidden');
+            formSuccess.classList.add('hidden');
+          }, 5000);
+        });
+      }
+
+      // --- Footer Year ---
+      document.getElementById('year').textContent = new Date().getFullYear();
+    });
+  </script>
+  <script type="module" src="/index.tsx"></script>
+</body>
+
+</html>
