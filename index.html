@@ -49,8 +49,13 @@
             'fade-in-right': 'fadeInRight 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards',
             'fade-in-down': 'fadeInDown 0.5s ease-out forwards',
             'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'marquee': 'marquee 13s linear infinite',
           },
           keyframes: {
+            marquee: {
+              '0%': { transform: 'translateX(0%)' },
+              '100%': { transform: 'translateX(-33.333333%)' },
+            },
             fadeInRight: {
               'from': { opacity: '0', transform: 'translateX(20px)' },
               'to': { opacity: '1', transform: 'translateX(0)' },
@@ -289,6 +294,55 @@
             class="text-slate-400 hover:text-brand-primary dark:hover:text-white transition-colors">
             <i class="fa-solid fa-chevron-down text-2xl"></i>
           </a>
+        </div>
+      </section>
+
+      <!-- Trusted By Section -->
+      <section
+        class="py-12 bg-slate-50 border-b border-t border-slate-200/50 dark:bg-slate-900/50 dark:border-white/5 transition-colors-global overflow-hidden">
+        <div class="container mx-auto px-4">
+          <p class="text-center text-xl font-bold uppercase tracking-[0.2em] text-black dark:text-slate-400 mb-8">
+            Trusted By</p>
+
+          <div class="relative flex overflow-x-hidden group">
+            <div class="animate-marquee whitespace-nowrap flex items-center w-max">
+              <!-- Set 1 -->
+              <div class="flex items-center gap-16 flex-shrink-0 px-8">
+                <img src="logo1.jpg" alt="Client Logo 1" class="h-32 w-48 object-contain transition-all duration-300">
+                <img src="logo2.jpg" alt="Client Logo 2" class="h-32 w-48 object-contain transition-all duration-300">
+                <img src="logo3.jpg" alt="Client Logo 3" class="h-32 w-48 object-contain transition-all duration-300">
+                <img src="logo4.jpg" alt="Client Logo 4" class="h-32 w-48 object-contain transition-all duration-300">
+                <img src="logo5.jpg" alt="Client Logo 5" class="h-32 w-48 object-contain transition-all duration-300">
+                <img src="logo6.jpg" alt="Client Logo 6" class="h-32 w-48 object-contain transition-all duration-300">
+              </div>
+              <!-- Set 2 (Duplicate for infinite scroll) -->
+              <div class="flex items-center gap-16 flex-shrink-0 px-8">
+                <img src="logo1.jpg" alt="Client Logo 1" class="h-32 w-48 object-contain transition-all duration-300">
+                <img src="logo2.jpg" alt="Client Logo 2" class="h-32 w-48 object-contain transition-all duration-300">
+                <img src="logo3.jpg" alt="Client Logo 3" class="h-32 w-48 object-contain transition-all duration-300">
+                <img src="logo4.jpg" alt="Client Logo 4" class="h-32 w-48 object-contain transition-all duration-300">
+                <img src="logo5.jpg" alt="Client Logo 5" class="h-32 w-48 object-contain transition-all duration-300">
+                <img src="logo6.jpg" alt="Client Logo 6" class="h-32 w-48 object-contain transition-all duration-300">
+              </div>
+              <!-- Set 3 (Duplicate for infinite scroll) -->
+              <div class="flex items-center gap-16 flex-shrink-0 px-8">
+                <img src="logo1.jpg" alt="Client Logo 1" class="h-32 w-48 object-contain transition-all duration-300">
+                <img src="logo2.jpg" alt="Client Logo 2" class="h-32 w-48 object-contain transition-all duration-300">
+                <img src="logo3.jpg" alt="Client Logo 3" class="h-32 w-48 object-contain transition-all duration-300">
+                <img src="logo4.jpg" alt="Client Logo 4" class="h-32 w-48 object-contain transition-all duration-300">
+                <img src="logo5.jpg" alt="Client Logo 5" class="h-32 w-48 object-contain transition-all duration-300">
+                <img src="logo6.jpg" alt="Client Logo 6" class="h-32 w-48 object-contain transition-all duration-300">
+              </div>
+            </div>
+
+            <!-- Gradient Fades -->
+            <div
+              class="absolute top-0 left-0 w-32 h-full bg-gradient-to-r from-slate-50 dark:from-slate-950 to-transparent z-10 pointer-events-none">
+            </div>
+            <div
+              class="absolute top-0 right-0 w-32 h-full bg-gradient-to-l from-slate-50 dark:from-slate-950 to-transparent z-10 pointer-events-none">
+            </div>
+          </div>
         </div>
       </section>
 
